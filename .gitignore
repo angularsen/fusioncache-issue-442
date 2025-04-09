@@ -1,0 +1,28 @@
+# IDE files
+.idea/
+.vs/
+.volumes/
+
+# IDE - Visual Studio files
+*.user
+
+# IDE - Rider files
+*.testsessions
+
+# Redis Data
+*.rdb
+*.aof
+
+# Mac Temporary files
+.DS_Store
+scripts/.cache/
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+TestResults/
+
+# Project files
+digma-auth/Source/Digma.Sts.Api/tempkey.jwk

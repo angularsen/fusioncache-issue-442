@@ -1,0 +1,126 @@
+###############################
+# Git Line Endings            #
+###############################
+# Based on gitattributes-best-practices
+# https://rehansaeed.com/gitattributes-best-practices/
+
+# Set default behaviour to automatically normalize line endings.
+* text=auto
+
+# On linux or mac you can run the following command to print all the different
+# file endings in your current directory.
+# find . -type f -not \( -path "*/node_modules/*" -o -path "*/dist/*" -o -path "*/bin/*" -o -path "*/obj/*" \) | perl -ne 'print $1 if m/\.([^.\/]+)$/' | sort -u
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+
+# Git
+*.gitignore     text
+*.gitattributes text
+*.gitmodules    text
+
+# C#
+*.cs            text diff=csharp
+*.sln           text eol=crlf
+*.DotSettings   text
+*.csproj        text
+*.props         text
+*.targets       text
+*.ruleset       text
+
+# SQL
+*.sql           text
+*.sqlgen        text
+*.sqlproj       text
+*.dtsx          text
+
+# Docker
+*Dockerfile     text
+*.dockerignore  text
+*.dcproj        text
+*.env           text
+
+# Web
+*.ts            text
+*.js            text
+*.html          text diff=html
+*.vue           text
+*.css           text diff=css
+*.sass          text
+*.scss          text
+*.map           text
+*.har           text
+*.lock          text
+
+# Data structures
+*.yml           text
+*.yaml          text
+*.json          text
+*.xml           text
+*.conf          text
+*.config        text
+*.txt           text
+*.resx          text
+
+# Tests
+*.runsettings   text
+
+# Documentation
+*.md            text diff=markdown
+*.graphml       text
+
+# Text templating
+*.liquid        text eol=lf
+*.hbs           text eol=lf
+
+# Certificate
+*.crt           text
+*.csr           text
+*.key           text
+*.pem           text
+
+# Windows files
+*.ps1           text eol=crlf
+*.cmd           text eol=crlf
+*.bat           text eol=crlf
+
+# Linux files
+*.sh            text eol=lf
+
+# Other
+*.editorconfig  text
+
+
+
+###############################
+# Git Large File System (LFS) #
+###############################
+
+# Archives
+*.7z    filter=lfs diff=lfs merge=lfs -text
+*.br    filter=lfs diff=lfs merge=lfs -text
+*.gz    filter=lfs diff=lfs merge=lfs -text
+*.tar   filter=lfs diff=lfs merge=lfs -text
+*.zip   filter=lfs diff=lfs merge=lfs -text
+
+# Images
+*.gif   filter=lfs diff=lfs merge=lfs -text
+*.jpg   filter=lfs diff=lfs merge=lfs -text
+*.png   filter=lfs diff=lfs merge=lfs -text
+*.svg   filter=lfs diff=lfs merge=lfs -text
+*.ico   filter=lfs diff=lfs merge=lfs -text
+
+# Fonts
+*.woff  filter=lfs diff=lfs merge=lfs -text
+*.woff2 filter=lfs diff=lfs merge=lfs -text
+*.ttf   filter=lfs diff=lfs merge=lfs -text
+
+# Documents
+*.docx  filter=lfs diff=lfs merge=lfs -text
+*.pdf   filter=lfs diff=lfs merge=lfs -text
+
+# Other
+*.pfx   filter=lfs diff=lfs merge=lfs -text
+
+# Figma
+*.fig   filter=lfs diff=lfs merge=lfs -text
