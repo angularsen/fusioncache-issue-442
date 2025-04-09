@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisReproConsole", "RedisReproConsole\RedisReproConsole.csproj", "{BEE649DE-D2C2-4A2B-B955-79FF0E22A7E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisReproCommon", "RedisReproCommon\RedisReproCommon.csproj", "{9A94C2A5-7BFA-4AFA-A7D2-DE6068547E4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisReproApi", "RedisReproApi\RedisReproApi.csproj", "{792A015F-4891-4102-95D7-D070C33CD27A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Files", "_Files", "{2F20D3E7-6D7F-4976-92F1-2C4A97C7AF7D}"
+	ProjectSection(SolutionItems) = preProject
+		run-apis.sh = run-apis.sh
+		run-requests-setasync-unique-cachenames.sh = run-requests-setasync-unique-cachenames.sh
+		run-requests-getorsetasync.sh = run-requests-getorsetasync.sh
+		README.md = README.md
+		run-requests-setasync-same-cachename.sh = run-requests-setasync-same-cachename.sh
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEE649DE-D2C2-4A2B-B955-79FF0E22A7E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEE649DE-D2C2-4A2B-B955-79FF0E22A7E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEE649DE-D2C2-4A2B-B955-79FF0E22A7E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEE649DE-D2C2-4A2B-B955-79FF0E22A7E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A94C2A5-7BFA-4AFA-A7D2-DE6068547E4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A94C2A5-7BFA-4AFA-A7D2-DE6068547E4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A94C2A5-7BFA-4AFA-A7D2-DE6068547E4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A94C2A5-7BFA-4AFA-A7D2-DE6068547E4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{792A015F-4891-4102-95D7-D070C33CD27A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{792A015F-4891-4102-95D7-D070C33CD27A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{792A015F-4891-4102-95D7-D070C33CD27A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{792A015F-4891-4102-95D7-D070C33CD27A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
