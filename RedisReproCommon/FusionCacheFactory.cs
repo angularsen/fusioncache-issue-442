@@ -34,7 +34,7 @@ public sealed class FusionCacheFactory : IAsyncDisposable
 
         var redisConfig = ConfigurationOptions.Parse("localhost:6379");
         redisConfig.AbortOnConnectFail = false; // Reconnect if disconnected
-        redisConfig.ClientName = cacheName;
+        redisConfig.ClientName = cacheName + GetRandomShortString(); // cacheName is also used for FusionCache.CacheName, so make this unique to exclude it from possible causes where Redis timeouts are observed when cache name is shared across API instances.
 
         _redisMultiplexer = GetSharedRedisMultiplexerWithLogging(redisConfig, _redisLogFileWriter);
     }
