@@ -1,12 +1,16 @@
 # Repro Redis timeouts
 
 `SetAsync` and `GetOrAsync` gets blocked in certain conditions, and results in the API no longer responding to requests or responding much slower than usual.
+To reproduce, multiple API instances are required, with a backplane to communicate changes to the distributed cache. The backplane events seem central to the problem, since it triggers `HMGET` operations to proactively refresh each API's local memory copy.
 
-This was a regression from FusionCache `2.0.0` to `2.0.1/2.1.0`, but seems fixed in `2.2.0-preview1`.
+This was a regression from FusionCache `2.0.0` to `2.0.1/2.1.0`, but seems fixed in `2.2.0-preview1`. Not sure exactly what changed between these yet.
+Upgrading to FusionCache `2.2.0-preview1` seems to fix the timeouts and significantly improve responsiveness of API requests.
 
-## Workaround - Upgrade to FusionCache 2.2.0-preview1
+Two repro apps are included:
+- RedisReproApi - hosting endpoints to invoke `SetAsync` or `GetOrSetAsync`
+- RedisReproConsole - console app, trying to do the same thing with multiple `FusionCache` instances invoked concurrently
 
-Upgrade to FusionCache 2.2.0-preview1 seems to fix timeouts and significantly improve responsiveness of API requests.
+I have so far only been able to reproduce in an API request context, not in the console app.
 
 ## Reproduce with FusionCache 2.1.0
 
@@ -26,6 +30,14 @@ To quickly reproduce, run these two scripts in _separate_ bash shells:
 # Timeouts are expected, due to using the same name? See examples below.
 ./run-requests-setasync-same-cachename.sh
 ```
+
+### Video of repro
+#### RedisRepro - FusionCache 2.1.0 and timeouts
+[![RedisRepro - FusionCache 2.1.0 and timeouts](https://img.youtube.com/vi/dAQI_Mn47uE/0.jpg)](https://youtu.be/dAQI_Mn47uE)
+
+#### RedisRepro - FusionCache 2.2.0-preview1 and no timeouts
+[![RedisRepro - FusionCache 2.2.0-preview1 and no timeouts](https://img.youtube.com/vi/ebUsSFl2R7w/0.jpg)](https://youtu.be/ebUsSFl2R7w)
+
 
 ### How to reproduce in general, with an API endpoint
 - Configure a FusionCache singleton instance with `StackExchange.Redis 2.8.31` for both distributed cache and backplane
