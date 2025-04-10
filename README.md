@@ -15,6 +15,7 @@ I have so far only been able to reproduce in an API request context, not in the 
 ## Prerequisites
 - .NET9 SDK
 - Redis running locally on `localhost:6379`, I hosted mine in Docker
+- (Optional) RedisInsight to profile Redis and view all commands
 
 ## Reproduce with FusionCache 2.1.0
 
