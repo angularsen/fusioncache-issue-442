@@ -12,6 +12,10 @@ Two repro apps are included:
 
 I have so far only been able to reproduce in an API request context, not in the console app.
 
+## Prerequisites
+- .NET9 SDK
+- Redis running locally on `localhost:6379`, I hosted mine in Docker
+
 ## Reproduce with FusionCache 2.1.0
 
 To quickly reproduce, run these two scripts in _separate_ bash shells:
