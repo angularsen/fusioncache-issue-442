@@ -16,6 +16,7 @@ The repro incurs a very high concurrent load, so Redis timeouts and thread starv
 ## Prerequisites
 - .NET9 SDK
 - Redis running locally on `localhost:6379`, I hosted mine in Docker
+- (Optional) Seq to view and filter structured logs and traces, instead of console output
 - (Optional) RedisInsight to profile Redis and view all commands
 
 ## Reproduce with FusionCache 2.1.0
