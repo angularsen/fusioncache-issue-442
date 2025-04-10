@@ -11,7 +11,7 @@ Two repro apps are included:
 - RedisReproConsole - console app, trying to do the same thing with multiple `FusionCache` instances invoked concurrently
 
 I have so far only been able to reproduce in an API request context, not in the console app.<br>
-The repro incurs a very high concurrent load, so Redis timeouts and thread starvation does not indicate a bug in of itself, but the issue is about a _regression_ in FusionCache where it became a problem in "normal" use where a batch of user profile cache entries were periodically refreshed.
+The repro incurs a very high concurrent load, so Redis timeouts and thread starvation does not indicate a bug in and of itself, but the issue is about a _regression_ in FusionCache where it became a problem in "normal" use where a batch of user profile cache entries were periodically refreshed.
 
 ## Prerequisites
 - .NET9 SDK
