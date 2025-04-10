@@ -1,7 +1,7 @@
 # Repro Redis timeouts
 
 `SetAsync` and `GetOrAsync` gets blocked in certain conditions, and results in the API no longer responding to requests or responding much slower than usual.
-To reproduce, multiple API instances are required, with a backplane to communicate changes to the distributed cache. The backplane events seem central to the problem, since it triggers `HMGET` operations to proactively refresh each API's local memory copy.
+To reproduce, multiple API instances are required, with a backplane to communicate changes to the distributed cache. The backplane events seem central to the problem, and they do trigger `HMGET` operations to proactively refresh each API's local memory copy that may or may not be relevant.
 
 This was a regression from FusionCache `2.0.0` to `2.0.1/2.1.0`, but seems fixed in `2.2.0-preview1`. Not sure exactly what changed between these yet.
 Upgrading to FusionCache `2.2.0-preview1` seems to fix the timeouts and significantly improve responsiveness of API requests.
@@ -11,6 +11,7 @@ Two repro apps are included:
 - RedisReproConsole - console app, trying to do the same thing with multiple `FusionCache` instances invoked concurrently
 
 I have so far only been able to reproduce in an API request context, not in the console app.
+The repro incurs very high concurrent load, so Redis timeouts and thread starvation is not unthinkable, but the issue is about a _regression_ in FusionCache where this started becoming a big problem.
 
 ## Prerequisites
 - .NET9 SDK
